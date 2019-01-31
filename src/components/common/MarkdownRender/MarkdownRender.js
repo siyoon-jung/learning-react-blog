@@ -3,6 +3,16 @@ import styles from './MarkdownRender.scss';
 import classNames from 'classnames/bind';
 
 import marked from 'marked';
+// prism 관련 코드 불러오기
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-okaidia.css';
+// 지원할 코드 형식들을 불러옵니다
+// http://prismjs.com/#languages-list 참조
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-javascript.min.js'
+import 'prismjs/components/prism-jsx.min.js';
+import 'prismjs/components/prism-css.min.js';
+
 
 const cx = classNames.bind(styles);
 
@@ -38,6 +48,9 @@ class MarkdownRender extends Component {
   componentDidUpdate(prevProps, prevState){
     if(prevProps.markdown !== this.props.markdown){
       this.renderMarkdown();
+    }
+    if(prevProps.markdown !== this.state.html){
+      Prism.highlightAll();
     }
   }
 
