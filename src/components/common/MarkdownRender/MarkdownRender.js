@@ -47,8 +47,9 @@ class MarkdownRender extends Component {
     const markup = {
       __html: html
     }
+
     return (
-      <div className={cx('markdown-render')} dangerouslySetInnerHtml={markup} />
+      <div className={cx('markdown-render')} dangerouslySetInnerHTML={markup} />
     );
   }
 }
