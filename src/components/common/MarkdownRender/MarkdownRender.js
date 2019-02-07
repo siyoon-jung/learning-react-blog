@@ -49,7 +49,7 @@ class MarkdownRender extends Component {
     if(prevProps.markdown !== this.props.markdown){
       this.renderMarkdown();
     }
-    if(prevProps.markdown !== this.state.html){
+    if(prevState.html !== this.state.html){
       Prism.highlightAll();
     }
   }
